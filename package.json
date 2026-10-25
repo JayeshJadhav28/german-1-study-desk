@@ -1,0 +1,48 @@
+{
+  "name": "german-i-study-desk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Independent study companion for NPTEL German I — not an official NPTEL/SWAYAM site",
+  "scripts": {
+    "import-data": "node scripts/import-course-data.mjs",
+    "import-resources": "node scripts/import-study-resources.mjs",
+    "prepare-data": "npm run import-data && npm run import-resources",
+    "validate-data": "node scripts/validate-data.mjs",
+    "test": "vitest run",
+    "test:worker": "vitest run -c vitest.worker.config.ts",
+    "test:all": "npm run test && npm run test:worker",
+    "typecheck": "tsc --noEmit",
+    "typecheck:worker": "tsc --noEmit -p tsconfig.worker.json",
+    "dev": "vite",
+    "build": "npm run build:public:offline",
+    "build:local": "npm run prepare-data && node scripts/make-branding.mjs && vite build",
+    "make-branding": "node scripts/make-branding.mjs",
+    "build:public-data": "node scripts/build-public-data.mjs",
+    "build:public": "node scripts/build-public.mjs",
+    "build:public:offline": "node scripts/build-public.mjs --offline",
+    "preview": "vite preview",
+    "preview:public": "vite preview --outDir dist-public"
+  },
+  "dependencies": {
+    "dompurify": "^3.2.4",
+    "marked": "^15.0.7",
+    "react-is": "^19.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.4.7",
+    "@cloudflare/workers-types": "^5.20261024.1",
+    "@playwright/test": "^1.64.1",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "happy-dom": "^21.0.4",
+    "playwright": "^1.64.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^3.10.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.152.0"
+  }
+}

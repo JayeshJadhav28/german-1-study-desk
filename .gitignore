@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+mcp.json
+
+# Cloudflare / Wrangler local state
+.wrangler/
+
+# Build output
+dist/
+dist-public/
+
+# Test and coverage output
+coverage/
+test-results/
+playwright-report/
+artifacts/
+tests/screenshots/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local backups and browser profiles
+backups/
+.nptel-browser-profile/
+German-I-Study-Pack-backups/
+
+# Full generated course corpus (local edition only)
+public/data/
+
+# Uncleared third-party media
+public/sounds/
+
+# Course-derived generated guides (unused by the public build)
+src/content/guides/
+
+# Local-only audit datasets and tooling
+question-audit.csv
+question-audit.json
+question-fixes.csv
+refresh-diff.json
+scripts/audit-site.mjs
+scripts/retest-site.mjs
+scripts/convert-guides.mjs
+scripts/convert-guides-check.mjs
+scripts/extract-stimuli.mjs
+scripts/question-audit/
+
+# Documentation: publish only the README
+*.md
+!README.md
+
+# Local debug artifacts
+_shot-*.png
+_debug-*.mjs
+previewserver.log
